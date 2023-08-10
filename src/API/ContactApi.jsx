@@ -23,12 +23,18 @@ const ContactApi = {
             data: contact
         })
     },
-    update:(contact)=>{
-        return axiosIns.request({
-            method:"POST",
-            url:'/contacts',
-            data: contact
-        })
+        update : (id,contact) =>{
+            return axiosIns.request({
+                method:"PATCH",
+                url:`/contacts/${id}`,
+                data:contact
+            })
+        },
+        delete: (id) =>{
+            return axiosIns.request({
+                method:"DELETE",
+                url:`/contacts/${id}`
+            })
     }
-
 }
+export default ContactApi

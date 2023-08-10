@@ -8,7 +8,9 @@ const ContactSlice = createSlice({
     name:"contact",
     initialState:initState.contacts,
     extraReducers:(builder)=>{
-        builder.addCase(createContact.fulfilled,(state,action)=>{})
+        builder.addCase(createContact.fulfilled,(state,action)=>{
+            state.push(action.payload)
+        })
             .addCase(retriveContacts.fulfilled,(state,action)=>{})
             .addCase(retriveSingle.fulfilled,(state,action)=>{})
             .addCase(updateContact.fulfilled,(state,action)=>{})

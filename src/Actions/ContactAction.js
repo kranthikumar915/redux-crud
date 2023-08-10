@@ -1,9 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import ComtactApi from '../API/ContactApi';
-//createAsyncThunk(actuon const,actio)
+import ContactApi from '../API/ContactApi';
+//createAsyncThunk(actuon const,action method)
 //create action 
 export const createContact = createAsyncThunk("contact/create",async (contact)=>{
-    console.log(`new contact =`,contact);
+    console.log(`action output =`,contact);
+    const res = await ContactApi.create(contact)
+    return res.data;
 })
 
 //read all action 
